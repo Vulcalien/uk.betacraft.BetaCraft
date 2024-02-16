@@ -1,0 +1,39 @@
+id: uk.betacraft.BetaCraft
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.openjdk8
+command: betacraft.sh
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --device=dri
+  - --socket=pulseaudio
+  - --share=network
+  - --persist=.betacraft
+  - --env=PATH=/usr/bin:/app/bin:/app/jre/bin
+modules:
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - /usr/lib/sdk/openjdk8/install.sh
+  - name: xrandr
+    sources:
+      - type: archive
+        url: https://xorg.freedesktop.org/archive/individual/app/xrandr-1.5.1.tar.gz
+        sha256: 7b99edb7970a1365eaf5bcaf552144e4dfc3ccf510c4abc08569849929fb366e
+  - name: betacraft
+    buildsystem: simple
+    build-commands:
+      - install -D launcher.jar /app/share/launcher.jar
+      - install -D betacraft.sh /app/bin/betacraft.sh
+    sources:
+      - type: script
+        dest-filename: betacraft.sh
+        commands:
+          - exec java -jar /app/share/launcher.jar
+      - type: file
+        dest-filename: launcher.jar
+        url: https://github.com/betacraftuk/betacraft-launcher/releases/download/1.09_16/launcher-1.09_16.jar
+        sha256: f4efc23114a324607916512c46a811c1e3df2e5629f5cd8008266fff8a3ca40c
