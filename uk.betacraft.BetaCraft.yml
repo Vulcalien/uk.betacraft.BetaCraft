@@ -28,7 +28,13 @@ modules:
     build-commands:
       - install -D launcher.jar /app/share/launcher.jar
       - install -D betacraft.sh /app/bin/betacraft.sh
+      - install -D uk.betacraft.BetaCraft.desktop /app/share/applications/uk.betacraft.BetaCraft.desktop
+      - install -D icon-256.png /app/share/icons/hicolor/256x256/apps/uk.betacraft.BetaCraft.png
     sources:
+      - type: file
+        path: uk.betacraft.BetaCraft.desktop
+      - type: file
+        path: icon-256.png
       - type: script
         dest-filename: betacraft.sh
         commands:

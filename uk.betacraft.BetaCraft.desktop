@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=BetaCraft
+Icon=uk.betacraft.BetaCraft
+GenericName=Game Launcher
+Categories=Game;
+Exec=betacraft.sh
+PrefersNonDefaultGPU=true
