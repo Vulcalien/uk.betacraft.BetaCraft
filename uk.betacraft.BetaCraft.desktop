@@ -4,5 +4,5 @@ Name=BetaCraft
 Icon=uk.betacraft.BetaCraft
 GenericName=Game Launcher
 Categories=Game;
-Exec=betacraft.sh
+Exec=betacraft.bash
 PrefersNonDefaultGPU=true

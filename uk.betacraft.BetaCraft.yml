@@ -4,7 +4,7 @@ runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk8
-command: betacraft.sh
+command: betacraft.bash
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -13,6 +13,7 @@ finish-args:
   - --share=network
   - --persist=.betacraft
   - --env=PATH=/usr/bin:/app/bin:/app/jre/bin
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create
 modules:
   - name: openjdk
     buildsystem: simple
@@ -27,7 +28,7 @@ modules:
     buildsystem: simple
     build-commands:
       - install -D launcher.jar /app/share/launcher.jar
-      - install -D betacraft.sh /app/bin/betacraft.sh
+      - install -D betacraft.bash /app/bin/betacraft.bash
       - install -D uk.betacraft.BetaCraft.desktop /app/share/applications/uk.betacraft.BetaCraft.desktop
       - install -D icon-256.png /app/share/icons/hicolor/256x256/apps/uk.betacraft.BetaCraft.png
     sources:
@@ -35,10 +36,8 @@ modules:
         path: uk.betacraft.BetaCraft.desktop
       - type: file
         path: icon-256.png
-      - type: script
-        dest-filename: betacraft.sh
-        commands:
-          - exec java -jar /app/share/launcher.jar
+      - type: file
+        path: betacraft.bash
       - type: file
         dest-filename: launcher.jar
         url: https://github.com/betacraftuk/betacraft-launcher/releases/download/1.09_16/launcher-1.09_16.jar
