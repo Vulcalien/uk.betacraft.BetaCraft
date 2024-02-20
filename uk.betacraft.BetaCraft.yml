@@ -14,6 +14,8 @@ finish-args:
   - --persist=.betacraft
   - --env=PATH=/usr/bin:/app/bin:/app/jre/bin
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
+cleanup:
+  - '/share/man'
 modules:
   - name: openjdk
     buildsystem: simple
