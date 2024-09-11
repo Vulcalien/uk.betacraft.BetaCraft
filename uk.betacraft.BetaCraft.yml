@@ -42,5 +42,5 @@ modules:
         path: betacraft.bash
       - type: file
         dest-filename: launcher.jar
-        url: https://github.com/betacraftuk/betacraft-launcher/releases/download/1.09_16/launcher-1.09_16.jar
-        sha256: f4efc23114a324607916512c46a811c1e3df2e5629f5cd8008266fff8a3ca40c
+        url: https://github.com/betacraftuk/betacraft-launcher/releases/download/1.09_17/launcher-1.09_17.jar
+        sha256: 08c7a65fb9ab09ae5df64409375febc9e06727fb3acb3dda1eaf729b859658e3
